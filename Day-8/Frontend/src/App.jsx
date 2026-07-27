@@ -6,7 +6,7 @@ export default function App() {
 
   function fetchNotes(){
     axios
-      .get("http://localhost:3000/notes")
+      .get("https://mern-backend-nimy.onrender.com/notes")
       .then((res) => {
         setNotes(res.data.note);
       })
@@ -22,7 +22,7 @@ export default function App() {
 
     console.log(title.value,description.value);
 
-    axios.post("http://localhost:3000/notes",{
+    axios.post("https://mern-backend-nimy.onrender.com/notes",{
       title:title.value,
       description:description.value
     })
@@ -33,7 +33,7 @@ export default function App() {
   }
 
   function handleDeleteNote(noteId){ 
-    axios.delete("http://localhost:3000/notes/"+noteId)
+    axios.delete("https://mern-backend-nimy.onrender.com/notes/"+noteId)
       .then(res=>{
         console.log(res.data)
         fetchNotes()
@@ -43,7 +43,7 @@ export default function App() {
   function updateDescription(noteId){
     const description=prompt("Enter new description:")
 
-    axios.patch("http://localhost:3000/notes/"+noteId,{
+    axios.patch("https://mern-backend-nimy.onrender.com/notes/"+noteId,{
       description:description
     })
       .then(res=>{
