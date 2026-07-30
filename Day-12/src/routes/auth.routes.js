@@ -1,11 +1,11 @@
-const express =require("express");
+const express =require('express');
+const authController = require("../controllers/auth.controller");
 
 const authRouter = express.Router();
 
-authRouter.post("/register", async(req,res)=>{
+authRouter.post("/register", authController.registerController)
 
-    const {username,email,password,bio,profileImage} = req.body;
+authRouter.post("/login",authController.loginController)
 
 
-
-})
+module.exports=authRouter;
